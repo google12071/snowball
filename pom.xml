@@ -21,7 +21,11 @@
     <!--公共父模块中统一管理版本号，子模块中仅引用依赖，无需单独配置版本号-->
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.1</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
