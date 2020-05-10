@@ -72,7 +72,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!--自定跳过单元测试-->
+            <!--自动跳过单元测试-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
