@@ -17,6 +17,6 @@ public class JdkDynamicProxyTest {
         ClassLoader loader = customerService.getClass().getClassLoader();
         CustomerService proxy = (CustomerService) Proxy.newProxyInstance(loader, customerService.getClass().getInterfaces(),
                 new WaiterHandler(customerService));
-        proxy.eatting("fq");
+        proxy.eating("fq");
     }
 }

@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CustomerServiceImpl implements CustomerService {
     @Override
-    public void eatting(String name) {
-        System.out.println("name:" + name);
+    public void eating(String name) {
+        System.out.println("my name is " + name + ",i am eating");
     }
 }

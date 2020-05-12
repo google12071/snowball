@@ -8,5 +8,5 @@ public interface CustomerService {
     /**
      * 就餐
      */
-    void eatting(String name);
+    void eating(String name);
 }

@@ -1,5 +1,7 @@
 package org.develeoper.learn.common.proxy;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -9,7 +11,7 @@ import java.lang.reflect.Method;
  * @Author lfq
  * @Date 2020/5/11
  **/
-
+@Slf4j
 public class WaiterHandler implements InvocationHandler {
     /**
      * 目标代理对象
