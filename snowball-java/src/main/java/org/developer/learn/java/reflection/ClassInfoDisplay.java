@@ -1,4 +1,4 @@
-package org.developer.learn.common.reflection;
+package org.developer.learn.java.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

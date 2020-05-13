@@ -1,5 +1,4 @@
-package org.developer.learn.common.proxy;
-
+package org.developer.learn.java.proxy;
 
 import lombok.extern.slf4j.Slf4j;
 
