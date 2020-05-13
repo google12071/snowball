@@ -1,4 +1,4 @@
-package org.develeoper.learn.common.proxy;
+package org.developer.learn.common.proxy;
 
 /**
  * 顾客就餐服务

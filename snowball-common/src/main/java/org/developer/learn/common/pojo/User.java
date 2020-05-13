@@ -1,4 +1,4 @@
-package org.develeoper.learn.common.pojo;
+package org.developer.learn.common.pojo;
 
 import lombok.Data;
 

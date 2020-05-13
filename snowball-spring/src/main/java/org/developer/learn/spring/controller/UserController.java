@@ -1,6 +1,6 @@
 package org.developer.learn.spring.controller;
 
-import org.develeoper.learn.common.pojo.User;
+import org.developer.learn.common.pojo.User;
 import org.developer.learn.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,7 +1,7 @@
 package org.developer.learn.spring.service;
 
 import com.google.common.collect.Lists;
-import org.develeoper.learn.common.pojo.User;
+import org.developer.learn.common.pojo.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
