@@ -1,6 +1,7 @@
 package org.developer.learn.common.pojo;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @ClassName Employee
@@ -9,6 +10,7 @@ import lombok.Data;
  * @Date 2020/5/13
  **/
 @Data
+@Slf4j
 public class Employee extends Person implements HumanBehavior, BiologyBehavior {
     public static Integer totalNum = 0;
     public int empNo;
@@ -40,16 +42,26 @@ public class Employee extends Person implements HumanBehavior, BiologyBehavior {
 
     @Override
     public void breath() {
-
+        log.info("breath implements BiologyBehavior");
     }
 
     @Override
     public void laugh() {
-
+        log.info("breath implements HumanBehavior");
     }
 
     @Override
-    public void sport() {
+    public void sport(String sportName) {
+        log.info("i like playing,{}", sportName);
+    }
 
+    /**
+     * static静态方法 计算乘方
+     *
+     * @param x
+     * @return
+     */
+    public static Double square(Double x) {
+        return x * x;
     }
 }
