@@ -113,6 +113,12 @@
                 <version>2.2.0</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>2.1.7</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
