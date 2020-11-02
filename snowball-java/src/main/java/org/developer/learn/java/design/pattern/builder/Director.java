@@ -1,4 +1,6 @@
-package org.developer.learn.java.design.pattern;
+package org.developer.learn.java.design.pattern.builder;
+
+import org.developer.learn.java.design.pattern.builder.Builder;
 
 /**
  * @author lfq

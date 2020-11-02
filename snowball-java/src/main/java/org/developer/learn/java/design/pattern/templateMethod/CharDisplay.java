@@ -1,4 +1,6 @@
-package org.developer.learn.java.design.pattern;
+package org.developer.learn.java.design.pattern.templateMethod;
+
+import org.developer.learn.java.design.pattern.templateMethod.AbstractDisplay;
 
 /**
  * @ClassName CharDisplay
