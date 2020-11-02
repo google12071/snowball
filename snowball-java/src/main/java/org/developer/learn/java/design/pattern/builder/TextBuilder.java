@@ -1,7 +1,5 @@
 package org.developer.learn.java.design.pattern.builder;
 
-import org.developer.learn.java.design.pattern.builder.Builder;
-
 /**
  * @ClassName TextBuilder
  * @Description:
