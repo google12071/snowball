@@ -19,12 +19,12 @@ public class SingletonTest {
         Singleton s3 = Singleton.getInstance();
         Singleton s4 = Singleton.getInstance();
         if (s1 == s2 && s2 == s3 && s3 == s4) {
-            System.out.println("true,obj:"+s1);
+            System.out.println("true,obj:" + s1);
         }
     }
 
     @Test
-    public void getInstanceByDCL(){
+    public void getInstanceByDCL() {
         DCLSingleton d1 = DCLSingleton.getInstance();
         DCLSingleton d2 = DCLSingleton.getInstance();
         DCLSingleton d3 = DCLSingleton.getInstance();
@@ -35,7 +35,7 @@ public class SingletonTest {
     }
 
     @Test
-    public void getSingleThreadInstance(){
+    public void getSingleThreadInstance() {
         SingleThreadSingleton s1 = SingleThreadSingleton.getInstance();
         SingleThreadSingleton s2 = SingleThreadSingleton.getInstance();
         if (s1 == s2) {
