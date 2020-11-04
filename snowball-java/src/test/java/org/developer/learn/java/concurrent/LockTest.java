@@ -1,8 +1,12 @@
 package org.developer.learn.java.concurrent;
 
+import org.developer.learn.java.lock.ConditionThread;
 import org.developer.learn.java.lock.IntLock;
 import org.developer.learn.java.lock.TimeLock;
 import org.junit.Test;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @ClassName LockTest
@@ -31,5 +35,19 @@ public class LockTest {
         Thread t2 = new Thread(timeLock);
         t1.start();
         t2.start();
+    }
+
+    @Test
+    public void condition() throws InterruptedException {
+        ConditionThread conditionThread = new ConditionThread();
+        Thread thread = new Thread(conditionThread);
+        thread.start();
+        Thread.sleep(3000);
+
+        ReentrantLock lock = conditionThread.getLock();
+        Condition condition = conditionThread.getCondition();
+        lock.lock();
+        condition.signal();
+        lock.unlock();
     }
 }
