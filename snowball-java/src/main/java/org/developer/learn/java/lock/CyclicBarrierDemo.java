@@ -28,11 +28,13 @@ public class CyclicBarrierDemo {
         public void run() {
             try {
                 //等待士兵集合完毕
+                log.info("{},前来报道，等待命令", soldier);
                 barrier.await();
                 //执行工作
                 doWork();
                 //等待士兵完成工作
                 barrier.await();
+                log.info("{},完成任务后，原地待命", soldier);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (BrokenBarrierException e) {
@@ -43,7 +45,7 @@ public class CyclicBarrierDemo {
         private void doWork() {
             try {
                 Thread.sleep(Math.abs(new Random().nextInt(3)));
-                log.info("士兵:{},完成任务", soldier);
+                log.info("{},完成任务", soldier);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
