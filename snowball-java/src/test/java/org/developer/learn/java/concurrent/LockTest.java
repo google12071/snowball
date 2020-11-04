@@ -2,9 +2,12 @@ package org.developer.learn.java.concurrent;
 
 import org.developer.learn.java.lock.ConditionThread;
 import org.developer.learn.java.lock.IntLock;
+import org.developer.learn.java.lock.SemaphoreThread;
 import org.developer.learn.java.lock.TimeLock;
 import org.junit.Test;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -49,5 +52,15 @@ public class LockTest {
         lock.lock();
         condition.signal();
         lock.unlock();
+    }
+
+    @Test
+    public void semaphoreOperate() {
+        final SemaphoreThread semaphoreThread = new SemaphoreThread();
+        //创建20个线程
+        ExecutorService service = Executors.newFixedThreadPool(20);
+        for (int i = 0; i < 20; i++) {
+            service.submit(semaphoreThread);
+        }
     }
 }
