@@ -1,11 +1,10 @@
 package org.developer.learn.java.concurrent;
 
-import org.developer.learn.java.lock.ConditionThread;
-import org.developer.learn.java.lock.IntLock;
-import org.developer.learn.java.lock.SemaphoreThread;
-import org.developer.learn.java.lock.TimeLock;
+import lombok.extern.slf4j.Slf4j;
+import org.developer.learn.java.lock.*;
 import org.junit.Test;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Condition;
@@ -17,6 +16,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Author lfq
  * @Date 2020/11/3
  **/
+@Slf4j
 public class LockTest {
     @Test
     public void deadLock() throws InterruptedException {
@@ -62,5 +62,21 @@ public class LockTest {
         for (int i = 0; i < 20; i++) {
             service.submit(semaphoreThread);
         }
+        service.shutdown();
+    }
+
+    @Test
+    public void countDownLatch() throws InterruptedException {
+        CountDownLatch latch = CountDownLatchThread.latch;
+        //创建10个线程
+        ExecutorService service = Executors.newFixedThreadPool(10);
+        for (int i = 0; i < 10; i++) {
+            service.submit(new CountDownLatchThread());
+        }
+        //主线程等待
+        log.info("ThreadName:{},is ready,count:{}", Thread.currentThread().getName(), latch.getCount());
+        latch.await();
+        log.info("ThreadName:{},running,count:{}", Thread.currentThread().getName(), latch.getCount());
+        service.shutdown();
     }
 }
