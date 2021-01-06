@@ -1,7 +1,6 @@
 package org.developer.learn.java.concurrent;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.MapUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,13 +43,11 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor {
     protected void afterExecute(Runnable r, Throwable t) {
         String threadName = Thread.currentThread().getName();
         Map<String, Long> costMap = executeCost.get();
-        if (MapUtils.isNotEmpty(costMap)) {
-            long start = costMap.get(threadName);
-            long cost = System.currentTimeMillis() - start;
-            costMap.put(threadName, cost);
-            executeCost.set(costMap);
-            log.info(threadName + "is ready beforeExecute,cost:{}", cost);
-        }
+        long start = costMap.get(threadName);
+        long cost = System.currentTimeMillis() - start;
+        costMap.put(threadName, cost);
+        executeCost.set(costMap);
+        log.info(threadName + "is ready afterExecute,cost:{}", cost);
     }
 
     /**

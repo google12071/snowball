@@ -27,34 +27,41 @@ public class ThreadTest {
     public void customThread() throws InterruptedException {
         ExecutorService executor = new MyThreadPoolExecutor(5, 5, 10L
                 , TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(10), r -> {
-            Thread t = new Thread();
+            Thread t = new Thread(r);
             t.setName("myThread-" + t.getId());
-            t.setDaemon(true);
-            log.info("create thread:{}", t.getId());
             return t;
         }, new MyRejectedExecutionHandler());
 
         for (int i = 0; i < 20; i++) {
             executor.execute(new MyThread());
-            Thread.sleep(1000);
         }
-        executor.shutdown();
     }
 
     @Test
     public void myThread() throws Exception {
         ExecutorService executor = new ThreadPoolExecutor(5, 5, 0L
-                , TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), r -> {
-            Thread t = new Thread();
-            t.setName("myThread-" + t.getId());
-            t.setDaemon(true);
-            log.info("create thread:{}", t.getId());
-            return t;
+                , TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(10), new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread t = new Thread(r);
+                t.setName("myThread-" + t.getId());
+                log.info("create thread:{}", t.getId());
+                return t;
+            }
         }, new MyRejectedExecutionHandler());
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 5; i++) {
             executor.execute(new MyThread());
         }
-        executor.shutdown();
+        Thread.sleep(5000);
+    }
+
+    @Test
+    public void threadPool()throws Exception{
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        for (int i = 0; i < 10; i++) {
+            executorService.execute(new MyThread());
+        }
+        Thread.sleep(2000);
     }
 }

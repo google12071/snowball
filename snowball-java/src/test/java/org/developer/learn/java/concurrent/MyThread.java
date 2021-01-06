@@ -15,9 +15,9 @@ public class MyThread implements Runnable {
     @Override
     public void run() {
         try {
-            log.info(Thread.currentThread().getName() + "start");
+            log.info(Thread.currentThread().getName() + ",start");
             Thread.sleep(new Random().nextInt(3));
-            log.info(Thread.currentThread().getName() + "end");
+            log.info(Thread.currentThread().getName() + ",end");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
