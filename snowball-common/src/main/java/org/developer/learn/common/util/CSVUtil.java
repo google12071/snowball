@@ -33,6 +33,7 @@ public class CSVUtil {
         for (CSVRecord record : records) {
             log.info("userId:{},userName:{}", record.get("userId"), record.get("userName"));
         }
+
     }
 
     /**
