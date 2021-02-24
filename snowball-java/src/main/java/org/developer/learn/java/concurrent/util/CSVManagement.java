@@ -1,5 +1,7 @@
 package org.developer.learn.java.concurrent.util;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.*;
 
 /**
@@ -8,6 +10,7 @@ import java.util.concurrent.*;
  * @Author lfq
  * @Date 2021/1/29
  **/
+@Slf4j
 public class CSVManagement {
 
     /**
@@ -27,11 +30,10 @@ public class CSVManagement {
         executor.shutdown();
         while (true) {
             if (executor.isTerminated()) {
-                System.out.println("结束了！");
+                log.info("executor executor finish");
                 break;
             }
             Thread.sleep(2000);
         }
-        System.out.println("共计num:" + CSVWorker.getNum());
     }
 }
