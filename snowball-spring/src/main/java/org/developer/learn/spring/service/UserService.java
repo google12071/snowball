@@ -4,8 +4,10 @@ import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.developer.learn.common.pojo.User;
 import org.developer.learn.spring.aspect.annotation.MethodRetry;
+import org.developer.learn.spring.exception.BizException;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -31,11 +33,16 @@ public class UserService {
     }
 
 
-    @MethodRetry(retryTimes = 1, backoff = 200, retryOnException = ArithmeticException.class)
-    public void retry(Long uid) {
-        log.info("retry....");
+    @MethodRetry(retryOnException = BizException.class,retryTimes = 5)
+    public void arithmeticException() {
+        log.info("arithmeticException....");
         int a = 1;
         int b = 0;
-        System.out.println(a / b);
+        try {
+            System.out.println(a / b);
+        } catch (Exception e) {
+            log.error("a.b error", e);
+            throw new BizException("除零异常");
+        }
     }
 }

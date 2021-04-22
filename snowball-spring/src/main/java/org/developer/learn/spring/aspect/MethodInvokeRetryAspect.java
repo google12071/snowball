@@ -48,7 +48,7 @@ public class MethodInvokeRetryAspect {
             log.info("方法调用执行时间：" + duration);
             return ret;
         } catch (Exception e) {
-            log.info("重试调用超过次数");
+            log.info("方法调用异常",e);
         }
         return point.proceed();
     }

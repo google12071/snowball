@@ -18,7 +18,7 @@ public class RetryTest extends BaseTest {
     private UserService userService;
 
     @Test
-    public void retry() throws Exception {
-        userService.retry(1L);
+    public void retry() {
+        userService.arithmeticException();
     }
 }
