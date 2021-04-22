@@ -26,4 +26,11 @@ public @interface MethodRetry {
      * @return
      */
     int backoff() default 100;
+
+    /**
+     * 失败重试异常类型
+     *
+     * @return
+     */
+    Class<? extends Throwable> retryOnException() default Exception.class;
 }

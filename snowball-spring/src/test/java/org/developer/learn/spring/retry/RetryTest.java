@@ -1,5 +1,6 @@
 package org.developer.learn.spring.retry;
 
+import lombok.extern.slf4j.Slf4j;
 import org.developer.learn.spring.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Author lfq
  * @Date 2021/4/22
  **/
+@Slf4j
 public class RetryTest extends BaseTest {
 
     @Autowired

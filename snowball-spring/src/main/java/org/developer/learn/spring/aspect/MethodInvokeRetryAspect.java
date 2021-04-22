@@ -40,7 +40,7 @@ public class MethodInvokeRetryAspect {
             long startTime = System.currentTimeMillis();
             Object ret;
             if (methodRetry.retryTimes() > 0) {
-                ret = getTemplate(methodRetry).execute(context -> point.proceed());
+                ret = getTemplate(methodRetry, methodRetry.retryOnException()).execute(context -> point.proceed());
             } else {
                 ret = point.proceed();
             }
@@ -53,14 +53,21 @@ public class MethodInvokeRetryAspect {
         return point.proceed();
     }
 
-    private RetryTemplate getTemplate(MethodRetry methodRetry) {
-        String key = String.format("%d-%d", methodRetry.retryTimes(), methodRetry.backoff());
+    /**
+     * 获取失败重试模版
+     * @param methodRetry
+     * @param retryOnException
+     * @return
+     */
+    private RetryTemplate getTemplate(MethodRetry methodRetry, Class<? extends Throwable> retryOnException) {
+        String key = String.format("%d-%d-%s", methodRetry.retryTimes(), methodRetry.backoff(), retryOnException.getCanonicalName());
         if (!TEMPLATE_REPOSITORY.containsKey(key)) {
+            log.info("RetryTemplate key:{}", key);
             RetryTemplate template = RetryTemplate.builder()
                     // 最大重试次数
                     .maxAttempts(Math.min(methodRetry.retryTimes(), 5))
                     // 以下异常下重试
-                    .retryOn(Exception.class)
+                    .retryOn(retryOnException)
                     // 固定100ms 之后重试
                     .fixedBackoff(methodRetry.backoff())
                     .build();

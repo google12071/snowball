@@ -1,6 +1,7 @@
 package org.developer.learn.spring.service;
 
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.developer.learn.common.pojo.User;
 import org.developer.learn.spring.aspect.annotation.MethodRetry;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.List;
  * @Author lfq
  * @Date 2020/5/10
  **/
+@Slf4j
 @Service
 public class UserService {
 
@@ -29,8 +31,11 @@ public class UserService {
     }
 
 
-    @MethodRetry(retryTimes = 3, backoff = 200)
-    public void retry(Long uid) throws Exception {
-        throw new Exception("这是个失败重试接口");
+    @MethodRetry(retryTimes = 1, backoff = 200, retryOnException = ArithmeticException.class)
+    public void retry(Long uid) {
+        log.info("retry....");
+        int a = 1;
+        int b = 0;
+        System.out.println(a / b);
     }
 }
