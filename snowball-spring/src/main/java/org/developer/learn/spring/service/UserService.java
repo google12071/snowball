@@ -2,6 +2,7 @@ package org.developer.learn.spring.service;
 
 import com.google.common.collect.Lists;
 import org.developer.learn.common.pojo.User;
+import org.developer.learn.spring.aspect.annotation.MethodRetry;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,5 +26,11 @@ public class UserService {
 
     public User getUserById(Long uid) {
         return userList.stream().filter(x -> x.getUid().equals(uid)).findAny().orElse(null);
+    }
+
+
+    @MethodRetry(retryTimes = 3, backoff = 200)
+    public void retry(Long uid) throws Exception {
+        throw new Exception("这是个失败重试接口");
     }
 }
