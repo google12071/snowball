@@ -1,4 +1,4 @@
-package org.developer.learn.java.design.pattern.builder;
+package org.developer.learn.java.dp.builder;
 
 /**
  * @ClassName TextBuilder

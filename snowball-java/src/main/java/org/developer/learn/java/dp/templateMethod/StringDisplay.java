@@ -1,4 +1,4 @@
-package org.developer.learn.java.design.pattern.templateMethod;
+package org.developer.learn.java.dp.templateMethod;
 
 /**
  * @ClassName StringDisplay

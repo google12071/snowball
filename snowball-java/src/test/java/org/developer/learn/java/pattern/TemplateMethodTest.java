@@ -1,8 +1,8 @@
 package org.developer.learn.java.pattern;
 
-import org.developer.learn.java.design.pattern.templateMethod.AbstractDisplay;
-import org.developer.learn.java.design.pattern.templateMethod.CharDisplay;
-import org.developer.learn.java.design.pattern.templateMethod.StringDisplay;
+import org.developer.learn.java.dp.templateMethod.AbstractDisplay;
+import org.developer.learn.java.dp.templateMethod.CharDisplay;
+import org.developer.learn.java.dp.templateMethod.StringDisplay;
 import org.junit.Test;
 
 /**
