@@ -14,6 +14,6 @@ public class CompletableFutureTest {
         CompletableFuture<Integer> future = new CompletableFuture<>();
         new Thread(new AskThread(future)).start();
         Thread.sleep(5000);
-        future.complete(5);
+        future.complete(60);
     }
 }
