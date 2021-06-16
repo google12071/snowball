@@ -32,8 +32,19 @@ public class CompletableFutureTest {
             return 0;
         });
 
-        Integer res = future2.get(  1, TimeUnit.SECONDS);
+        Integer res = future2.get(1, TimeUnit.SECONDS);
         System.out.println(res);
+    }
+
+    /**
+     * 流式调用
+     */
+    @Test
+    public void streamInvoke() throws InterruptedException, ExecutionException, TimeoutException {
+        CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
+            return 1;
+        }).thenApply(String::valueOf).thenApply(String::valueOf).thenAccept(System.out::println);
+        future.get(1, TimeUnit.SECONDS);
     }
 
 }
