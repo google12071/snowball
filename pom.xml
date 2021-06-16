@@ -17,12 +17,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>snowball-common</module>
-        <module>snowball-spring</module>
         <module>snowball-java</module>
-        <module>snowball-data-access</module>
-        <module>snowball-cache</module>
-        <module>snowball-search</module>
-        <module>snowball-nosql</module>
     </modules>
 
     <!--公共父模块中统一管理版本号，子模块中仅引用依赖，无需单独配置版本号-->
