@@ -1,6 +1,7 @@
 package org.developer.learn.java.generic;
 
 import lombok.extern.slf4j.Slf4j;
+import org.developer.learn.java.enums.UserSexEnum;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
@@ -39,5 +40,19 @@ public class GenericTest {
         Generic<Integer> integerGeneric = new Generic<>(10);
         Object obj1 = integerGeneric.genericMethod(Class.forName("org.developer.learn.java.jvm.basic.CommonClass"));
         log.info("obj1:{}", obj1.getClass());
+    }
+
+
+    @Test
+    public void userSexEnum(){
+        String sex = "WOMAN";
+        String result = null;
+        UserSexEnum[] sexEnums = UserSexEnum.values();
+        for (UserSexEnum sexEnum : sexEnums) {
+            if (sex.equals(sexEnum.name())) {
+                result = sexEnum.name();
+            }
+        }
+        System.out.println(result);
     }
 }
