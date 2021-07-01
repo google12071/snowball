@@ -57,6 +57,11 @@
             <version>28.0-jre</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.vdurmont</groupId>
+            <artifactId>emoji-java</artifactId>
+        </dependency>
+
 
     </dependencies>
 
