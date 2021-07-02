@@ -55,4 +55,22 @@ public class GenericTest {
         }
         System.out.println(result);
     }
+
+    public static String substring(String source, int start, int end) {
+        String result;
+        try {
+            result = source.substring(source.offsetByCodePoints(0, start),
+                    source.offsetByCodePoints(0, end));
+        } catch (Exception e) {
+            result = "";
+        }
+        return result;
+    }
+
+
+    public static void main(String[]args){
+         String s="这是一个😄👌你我的榜样";
+         s=substring(s,3,6);
+         System.out.println(s);
+    }
 }
