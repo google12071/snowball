@@ -1,4 +1,4 @@
-package org.developer.learn.java.dp.singleton;
+package org.developer.learn.java.dp.creational.singleton;
 
 /**
  * @ClassName DCLSingleton（Double Check Lock）

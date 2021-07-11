@@ -1,8 +1,8 @@
 package org.developer.learn.java.proxy;
 
-import org.developer.learn.java.dp.singleton.DCLSingleton;
-import org.developer.learn.java.dp.singleton.SingleThreadSingleton;
-import org.developer.learn.java.dp.singleton.Singleton;
+import org.developer.learn.java.dp.creational.singleton.DCLSingleton;
+import org.developer.learn.java.dp.creational.singleton.SingleThreadSingleton;
+import org.developer.learn.java.dp.creational.singleton.Singleton;
 import org.junit.Test;
 
 /**
