@@ -1,7 +1,7 @@
 package org.developer.learn.java.proxy;
 
 import lombok.extern.slf4j.Slf4j;
-import org.developer.learn.common.pojo.Person;
+import org.developer.learn.java.pojo.Person;
 import org.junit.Test;
 
 import java.lang.reflect.Proxy;

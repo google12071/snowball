@@ -1,4 +1,4 @@
-package org.developer.learn.java.jvm.basic;
+package org.developer.learn.java.jvm.classloader;
 
 import lombok.extern.slf4j.Slf4j;
 

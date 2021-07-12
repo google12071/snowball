@@ -1,7 +1,8 @@
 package org.developer.learn.java.dp.creational.factory;
 
 /**
- * 抽象工厂
+ * 工厂方法模式（缺点：引入大量的工厂实现类，类膨胀）
+ *
  */
 public interface LoggerFactory {
     /**

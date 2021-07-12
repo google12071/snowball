@@ -4,8 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.developer.learn.java.enums.UserSexEnum;
 import org.junit.Test;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +36,7 @@ public class GenericTest {
     @Test
     public void genericMethod() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         Generic<Integer> integerGeneric = new Generic<>(10);
-        Object obj1 = integerGeneric.genericMethod(Class.forName("org.developer.learn.java.jvm.basic.CommonClass"));
+        Object obj1 = integerGeneric.genericMethod(Class.forName("org.developer.learn.java.jvm.classloader.CommonClass"));
         log.info("obj1:{}", obj1.getClass());
     }
 

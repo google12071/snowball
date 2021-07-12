@@ -1,4 +1,4 @@
-package org.developer.learn.common.util;
+package org.developer.learn.java.util;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

@@ -1,8 +1,8 @@
 package org.developer.learn.java.proxy;
 
 import lombok.extern.slf4j.Slf4j;
-import org.developer.learn.common.pojo.Person;
-import org.developer.learn.common.util.GsonUtil;
+import org.developer.learn.java.pojo.Person;
+import org.developer.learn.java.util.GsonUtil;
 
 /**
  * @ClassName PersonService
